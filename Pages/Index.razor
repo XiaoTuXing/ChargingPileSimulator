@@ -1,0 +1,57 @@
+@page "/"
+
+<h3>Charging Machines</h3>
+
+<div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#machine1">Charging Machine 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#machine2">Charging Machine 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#machine3">Charging Machine 3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#machine4">Charging Machine 4</a>
+        </li>
+    </ul>
+
+    <div id="machine1" class="tab-content">
+        <h4>Details for Charging Machine 1</h4>
+        <!-- Add machine 1 details here -->
+    </div>
+    
+    <div id="machine2" class="tab-content" style="display:none;">
+        <h4>Details for Charging Machine 2</h4>
+        <!-- Add machine 2 details here -->
+    </div>
+    
+    <div id="machine3" class="tab-content" style="display:none;">
+        <h4>Details for Charging Machine 3</h4>
+        <!-- Add machine 3 details here -->
+    </div>
+    
+    <div id="machine4" class="tab-content" style="display:none;">
+        <h4>Details for Charging Machine 4</h4>
+        <!-- Add machine 4 details here -->
+    </div>
+</div>
+
+<script>
+    // JavaScript to handle tab switching
+    const tabs = document.querySelectorAll('.nav-link');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.style.display = 'none');
+            
+            tab.classList.add('active');
+            const target = tab.getAttribute('href').substring(1);
+            document.getElementById(target).style.display = 'block';
+        });
+    });
+</script>
